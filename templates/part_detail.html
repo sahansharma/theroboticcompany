@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block header %}
+<!-- Same header as parts.html -->
+{% endblock %}
+
+{% block content %}
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+    <div class="px-4 py-3 @container">
+        <div class="flex overflow-hidden rounded-lg border border-[#cedbe8] bg-slate-50">
+            <table class="flex-1">
+                <!-- Table header same as parts.html -->
+            </table>
+        </div>
+    </div>
+    
+    <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Part Details</h2>
+    
+    <div class="flex w-full grow bg-slate-50 @container p-4">
+        <div class="w-full gap-1 overflow-hidden bg-slate-50 @[480px]:gap-2 aspect-[3/2] rounded-lg flex">
+            <div class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none flex-1"
+                 style="background-image: url('{{ part.image_url }}');"></div>
+        </div>
+    </div>
+    
+    <h1 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 text-left pb-3 pt-5">{{ part.name }}</h1>
+    <p class="text-[#0d141c] text-base font-normal leading-normal pb-3 pt-1 px-4">{{ part.description }}</p>
+    
+    <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
+        <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+            <p class="text-[#49739c] text-sm font-normal leading-normal">Specifications</p>
+            <p class="text-[#0d141c] text-sm font-normal leading-normal">{{ part.specifications }}</p>
+        </div>
+        <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+            <p class="text-[#49739c] text-sm font-normal leading-normal">Availability</p>
+            <p class="text-[#0d141c] text-sm font-normal leading-normal">{{ part.availability }}</p>
+        </div>
+        <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+            <p class="text-[#49739c] text-sm font-normal leading-normal">3D Model</p>
+            <p class="text-[#0d141c] text-sm font-normal leading-normal">Interactive 3D model viewer</p>
+        </div>
+    </div>
+    
+    <div class="flex px-4 py-3 justify-end">
+        <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#0c7ff2] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]">
+            <span class="truncate">Add to Cart</span>
+        </button>
+    </div>
+    
+    <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">AI Chat</h2>
+    <div class="flex items-center px-4 py-3 gap-3 @container">
+        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0"
+             style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCreCU57trwzPoh-ZmVwWCDzB5kppUBl_DvCP5bE0IPL4kxIly0D7dCNDtRXTzt-yCypu8ODSNNJz5TkRg8H3zFxt8x5TkmoSw5Za8-bWO9R7fl-Fmb8Xjx9LUBbY0zNL_MkMLvABELgqE-JvWp-Lln_2MmiUmTe2S92ARGD4SRLbLSUgaLQem3UggaDHOrc6et8HOvZUG4M_ME5bQPA4_ZnbhnGcLoyVNpI915Bb3n-fIC2GGUyCLOTi4Xx96wPZTz6ULu0e9jHOIN');"></div>
+        <form class="flex flex-col min-w-40 h-12 flex-1">
+            <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <input placeholder="Ask me anything about parts, design, or more..."
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border-none bg-[#e7edf4] focus:border-none h-full placeholder:text-[#49739c] px-4 rounded-r-none border-r-0 pr-2 text-base font-normal leading-normal">
+                <div class="flex border-none bg-[#e7edf4] items-center justify-center pr-4 rounded-r-lg border-l-0 !pr-2">
+                    <button class="min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal hidden @[480px]:block">
+                        <span class="truncate">Send</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
