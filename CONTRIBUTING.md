@@ -222,7 +222,7 @@ pytest --cov=app tests/
 - Specify error codes and messages
 - Update OpenAPI/Swagger specs
 
-## 🔄 Contribution Workflow
+##  Contribution Workflow
 
 ### 1. Create an Issue
 - Check existing issues first
@@ -282,7 +282,7 @@ git push origin feature/your-feature-name
 - Link related issues
 - Request reviews from maintainers
 
-## 🧪 Testing Your Changes
+##  Testing Your Changes
 
 ### Local Testing
 ```bash
@@ -473,4 +473,4 @@ Contributors will be recognized in:
 
 ---
 
-**Thank you for contributing to the future of robotics! 🤖**
+**Thank you for contributing to the future of robotics! **

@@ -2,32 +2,32 @@
 
 A comprehensive web platform for robotics enthusiasts, engineers, and companies featuring AI-powered chat assistance, 3D model gallery, marketplace, and educational resources.
 
-## 🚀 Features
+##  Features
 
-### 🤖 AI-Powered Robotics Assistant
+###  AI-Powered Robotics Assistant
 - **Expert Knowledge**: Specialized in robotics, automation, and engineering
 - **RAG-Enhanced**: Retrieval-Augmented Generation with robotics knowledge base
 - **Real-time Chat**: Interactive AI assistant with context-aware responses
 - **Standards Integration**: References ISO, IEEE, and industry best practices
 
-### 🛍️ Robotics Marketplace
+###  Robotics Marketplace
 - **Product Catalog**: Comprehensive robotics parts and components
 - **Advanced Filtering**: Search by category, brand, and specifications
 - **Product Ratings**: User reviews and ratings system
 - **Inventory Management**: Real-time stock tracking
 
-### 🎨 3D Model Gallery
+### 3D Model Gallery
 - **Interactive Models**: View and interact with 3D robotics models
 - **Multiple Formats**: Support for GLB, GLTF, OBJ, FBX, STL files
 - **Category Filtering**: Browse by robotics categories
 - **Download Options**: Access to downloadable 3D models
 
-### 📚 Educational Resources
+###  Educational Resources
 - **Robotics Standards**: ISO 10218, IEEE 1872, and industry guidelines
 - **Technical Documentation**: Comprehensive robotics engineering resources
 - **Best Practices**: Safety protocols and implementation guides
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Backend**: Flask (Python)
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
@@ -36,13 +36,13 @@ A comprehensive web platform for robotics enthusiasts, engineers, and companies 
 - **3D Rendering**: WebGL-compatible formats
 - **Styling**: Custom CSS with modern design
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Python 3.8+
 - OpenAI API key
 - Modern web browser with WebGL support
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone the Repository
 ```bash
@@ -82,7 +82,7 @@ python app.py
 
 The application will be available at `http://127.0.0.1:5000`
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 000_openqquantify_ex/
@@ -101,7 +101,7 @@ The application will be available at `http://127.0.0.1:5000`
 └── requirements.txt      # Python dependencies
 ```
 
-## 🎯 Key Features Explained
+## Key Features Explained
 
 ### AI Chat System
 The AI assistant uses a combination of:
@@ -123,7 +123,7 @@ The AI assistant uses a combination of:
 - **Pagination**: Efficient loading of large product catalogs
 - **Responsive Design**: Works on desktop and mobile devices
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 - `OPENAI_API_KEY`: Your OpenAI API key for AI chat functionality
@@ -134,21 +134,21 @@ The AI assistant uses a combination of:
 - **3D Models**: Place models in `static/assets/3d/`
 - **Styling**: Modify `static/css/style.css`
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+##  Support
 
 - **Issues**: Report bugs and feature requests via GitHub Issues
 - **Documentation**: Check the [AI Documentation](AI%20Documentation/) folder
 - **Community**: Join our robotics community discussions
 
-## 🔮 Roadmap
+##  Roadmap
 
 - [ ] User authentication and profiles
 - [ ] Advanced 3D model viewer with AR support
@@ -159,4 +159,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ for the robotics community**

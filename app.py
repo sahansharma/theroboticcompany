@@ -5,7 +5,7 @@ import csv
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
+
 load_dotenv()
 
 from ai_routes import ai_bp
@@ -13,17 +13,17 @@ from ai_routes import ai_bp
 app = Flask(__name__)
 app.register_blueprint(ai_bp, url_prefix='/ai')
 
-# Configuration for data directories
+
 BASE_DIR = Path(__file__).parent
 DATA_DIR = BASE_DIR / 'data'
 STATIC_DIR = BASE_DIR / 'static'
 ASSETS_3D_DIR = STATIC_DIR / 'assets' / '3d'
 
-# Create directories if they don't exist
+
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 ASSETS_3D_DIR.mkdir(parents=True, exist_ok=True)
 
-# Load products from CSV
+
 def load_products():
     csv_path = DATA_DIR / 'robot_parts_store.csv'
     products = []
@@ -69,7 +69,7 @@ def load_products():
             }
         ]
 
-# Load 3D gallery items from directory
+
 def load_gallery_items():
     gallery_items = []
     supported_extensions = ['.glb', '.gltf', '.obj', '.fbx', '.stl']
@@ -114,7 +114,7 @@ def load_gallery_items():
         }
     ]
 
-# Load data at startup
+
 PRODUCTS = load_products()
 GALLERY_ITEMS = load_gallery_items()
 
@@ -146,7 +146,7 @@ def get_products():
             if search in p['name'].lower() or search in p['description'].lower()
         ]
     
-    # Pagination
+
     start = (page - 1) * page_size
     end = start + page_size
     paginated_products = filtered_products[start:end]
@@ -172,8 +172,7 @@ def get_gallery():
 def chat():
     data = request.get_json()
     message = data.get('message', '')
-    
-    # Simple AI response simulation
+
     responses = [
         "Great question! In robotics, this involves understanding the principles of kinematics and control systems...",
         "That's an excellent robotics topic! Let me break this down for you step by step...",

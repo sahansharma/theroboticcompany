@@ -5,10 +5,8 @@ from rag.retriever import search as rag_search
 
 ai_bp = Blueprint('ai', __name__)
 
-# Load OpenAI API key from environment variable
 client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 
-# System prompt for expert robotics/engineering assistant
 BASE_SYSTEM_PROMPT = (
     "You are RoboExpert, an advanced AI assistant specialized in robotics and engineering. "
     "Provide clear, accurate, and detailed answers to questions about robotics, automation, control systems, sensors, actuators, AI in robotics, mechanical/electrical/software engineering, and best industry practices. "
@@ -35,7 +33,7 @@ def ask_ai():
 
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-mini",  # Use GPT-4o Mini model
+            model="gpt-4o-mini", 
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
