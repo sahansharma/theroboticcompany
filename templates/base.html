@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
-          href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
-    <title>TheRobotCompany</title>
-    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TheRobotCompany - Your Complete Robotics Platform{% endblock %}</title>
+    <meta name="description" content="Discover, learn, and build with our comprehensive robotics ecosystem. Get AI-powered assistance, explore cutting-edge 3D designs, and shop for premium robotics components.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
 </head>
-<body class="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden" 
-      style='font-family: Inter, "Noto Sans", sans-serif;'>
-    <div class="layout-container flex h-full grow flex-col">
-        {% block header %}{% endblock %}
-        
-        <div class="px-40 flex flex-1 justify-center py-5">
-            {% block content %}{% endblock %}
-        </div>
-        
-        {% block footer %}{% endblock %}
-    </div>
+<body>
+    {% block content %}{% endblock %}
+    
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
 </body>
 </html>

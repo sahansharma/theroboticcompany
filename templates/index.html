@@ -1,77 +1,570 @@
 {% extends "base.html" %}
 
-{% block header %}
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-10 py-3">
-    <div class="flex items-center gap-4 text-[#0d141c]">
-        <div class="size-4">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
-            </svg>
+{% block content %}
+<!-- Navigation -->
+<header id="navbar" class="navbar">
+    <div class="container">
+        <div class="nav-content">
+            <a href="#" class="logo" onclick="scrollToTop()">
+                <span>TheRobotCompany</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <a href="#" onclick="scrollToTop()" class="nav-link">Home</a>
+                <a href="#ai-chat" class="nav-link">AI Assistant</a>
+                <a href="#marketplace" class="nav-link">Marketplace</a>
+                <a href="#gallery-3d" class="nav-link">3D Gallery</a>
+                <a href="#features" class="nav-link">Features</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
         </div>
-        <h2 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">TheRobotCompany.com</h2>
-    </div>
-    <div class="flex flex-1 justify-end gap-8">
-        <div class="flex items-center gap-9">
-            <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Products</a>
-            <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">3D Models</a>
-            <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">AI Chat</a>
-            <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Support</a>
-        </div>
-        <a href="{{ url_for('parts_list') }}"
-            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#0c7ff2] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]">
-            <span class="truncate">Enter App</span>
-        </a>
+        
+        <!-- Mobile Navigation -->
+        <nav id="mobile-nav" class="nav-mobile">
+            <a href="#" onclick="scrollToTop(); closeMobileMenu()" class="nav-link">Home</a>
+            <a href="#ai-chat" onclick="closeMobileMenu()" class="nav-link">AI Assistant</a>
+            <a href="#marketplace" onclick="closeMobileMenu()" class="nav-link">Marketplace</a>
+            <a href="#gallery-3d" onclick="closeMobileMenu()" class="nav-link">3D Gallery</a>
+            <a href="#features" onclick="closeMobileMenu()" class="nav-link">Features</a>
+        </nav>
     </div>
 </header>
-{% endblock %}
 
-{% block content %}
-<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-    <div class="@container">
-        <div class="@[480px]:p-4">
-            <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-center justify-center p-4"
-                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZ5Kfb7cotZ0qjt1LqSgQ0kApUeLdaRKbpjh9p4g0MfkLuwVvdCQrcdoGwR9qaHcDh3uyTimOxQf8zFIyAwaQPy1y48dYJw3MVQt_vZ47kPx9dA1_zcKyrZRK11pD3fp3FJy3C4pLMY7bGqNeMgLZZBzBlHffNDoje2ucUEz2IJ5AQBXSonpR9O4uYX_sKsofd99CxcbXcGJPxrdOLRlLxmtwkzCPKhdS170e_RtFnVMFv_wzylVKADo-Rtq0znSXWVQ1Sz1n7J3Y9");'>
-                <div class="flex flex-col gap-2 text-center">
-                    <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                        Your One-Stop Shop for Robotics Parts
-                    </h1>
-                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                        Explore a vast catalog of high-quality robotics components, view interactive 3D models, and get instant support with our AI chat assistant.
-                    </h2>
-                </div>
-                <a href="{{ url_for('parts_list') }}"
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0c7ff2] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                    <span class="truncate">Enter App</span>
+<!-- Hero Section -->
+<section id="hero" class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge animate-fade-in">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2a10 10 0 1 0 10 10 4 4 0 1 1-4-4"></path>
+                    <path d="M12 8a4 4 0 1 0 4 4"></path>
+                    <circle cx="12" cy="12" r="1"></circle>
+                </svg>
+                Welcome to The Robot Company
+            </div>
+            
+            <h1 class="hero-title animate-fade-in">
+                Your Complete
+                <span class="gradient-text">Robotics Platform</span>
+            </h1>
+            
+            <p class="hero-subtitle animate-fade-in">
+                Discover, learn, and build with our comprehensive robotics ecosystem. 
+                Get AI-powered assistance, explore cutting-edge 3D designs, and shop for premium robotics components.
+            </p>
+            
+            <div class="hero-buttons animate-fade-in">
+                <a href="#ai-chat" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a10 10 0 1 0 10 10 4 4 0 1 1-4-4"></path>
+                        <path d="M12 8a4 4 0 1 0 4 4"></path>
+                        <circle cx="12" cy="12" r="1"></circle>
+                    </svg>
+                    Ask AI Anything
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
                 </a>
+                <a href="#marketplace" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-6m-9 0h9"></path>
+                    </svg>
+                    Browse Marketplace
+                </a>
+            </div>
+            
+            <div class="hero-features animate-fade-in">
+                <div class="feature-card">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a10 10 0 1 0 10 10 4 4 0 1 1-4-4"></path>
+                        <path d="M12 8a4 4 0 1 0 4 4"></path>
+                        <circle cx="12" cy="12" r="1"></circle>
+                    </svg>
+                    <h3>AI Assistant</h3>
+                    <p>Get instant answers to all your robotics questions</p>
+                </div>
+                <div class="feature-card">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-6m-9 0h9"></path>
+                    </svg>
+                    <h3>Parts Marketplace</h3>
+                    <p>Premium robotics components and kits</p>
+                </div>
+                <div class="feature-card">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                    <h3>3D Gallery</h3>
+                    <p>Explore stunning 3D robotics designs</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="flex flex-col gap-10 px-4 py-10 @container">
-        <div class="flex flex-col gap-4">
-            <h1 class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
-                Why Choose Us?
-            </h1>
-            <p class="text-[#0d141c] text-base font-normal leading-normal max-w-[720px]">We provide the best robotics parts and support for your projects.</p>
+</section>
+
+<!-- AI Chat Section -->
+<section id="ai-chat" class="ai-chat-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9.5 14.5L5.5 18.5M9.5 14.5L11.5 16.5L14.5 13.5M9.5 14.5L6.5 11.5M14.5 13.5L18.5 9.5M14.5 13.5L17.5 16.5M18.5 9.5L17.086 8.086M18.5 9.5L19.914 10.914"></path>
+                </svg>
+                AI-Powered Learning
+            </div>
+            <h2 class="section-title">
+                Ask Our <span class="text-primary">Robotics AI</span>
+            </h2>
+            <p class="section-subtitle">
+                Get instant, expert answers to any robotics question. From beginner concepts to advanced engineering topics.
+            </p>
         </div>
-        <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-0">
-            <!-- Feature cards remain static -->
+        
+        <div class="ai-chat-container">
+            <div class="chat-sidebar">
+                <div class="quick-questions">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                        </svg>
+                        Quick Questions
+                    </h3>
+                    <div class="question-list">
+                        <button class="question-btn" onclick="askQuestion('What is inverse kinematics?')">
+                            What is inverse kinematics?
+                        </button>
+                        <button class="question-btn" onclick="askQuestion('How do sensors work in robots?')">
+                            How do sensors work in robots?
+                        </button>
+                        <button class="question-btn" onclick="askQuestion('Explain machine learning in robotics')">
+                            Explain machine learning in robotics
+                        </button>
+                        <button class="question-btn" onclick="askQuestion('Best microcontrollers for robots?')">
+                            Best microcontrollers for robots?
+                        </button>
+                    </div>
+                    
+                    <div class="popular-topics">
+                        <h4>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                            </svg>
+                            Popular Topics
+                        </h4>
+                        <div class="topic-tags">
+                            <span class="topic-tag">Arduino</span>
+                            <span class="topic-tag">ROS</span>
+                            <span class="topic-tag">Computer Vision</span>
+                            <span class="topic-tag">3D Printing</span>
+                            <span class="topic-tag">Sensors</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-main">
+                <div id="chat-messages" class="chat-messages">
+                    <div class="message bot-message">
+                        <div class="message-avatar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2a10 10 0 1 0 10 10 4 4 0 1 1-4-4"></path>
+                                <path d="M12 8a4 4 0 1 0 4 4"></path>
+                                <circle cx="12" cy="12" r="1"></circle>
+                            </svg>
+                        </div>
+                        <div class="message-content">
+                            Hi! I'm your robotics AI assistant. Ask me anything about robotics, from basic concepts to advanced engineering questions!
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <input type="text" id="chat-input" placeholder="Ask anything about robotics..." onkeypress="handleChatKeyPress(event)">
+                    <button id="send-btn" onclick="sendMessage()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
+    </div>
+</section>
+
+<!-- Marketplace Section -->
+<section id="marketplace" class="marketplace-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-6m-9 0h9"></path>
+                </svg>
+                Premium Components
+            </div>
+            <h2 class="section-title">
+                Robotics <span class="text-primary">Marketplace</span>
+            </h2>
+            <p class="section-subtitle">
+                Discover high-quality robotics components, kits, and accessories from trusted manufacturers.
+            </p>
+        </div>
+        
+        <div class="marketplace-filters">
+            <div class="search-container">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                </svg>
+                <input type="text" id="product-search" placeholder="Search products..." oninput="filterProducts()">
+            </div>
+            
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all" onclick="setProductCategory('all')">All Products</button>
+                <button class="filter-btn" data-category="sensors" onclick="setProductCategory('sensors')">Sensors</button>
+                <button class="filter-btn" data-category="actuators" onclick="setProductCategory('actuators')">Actuators</button>
+                <button class="filter-btn" data-category="controllers" onclick="setProductCategory('controllers')">Controllers</button>
+                <button class="filter-btn" data-category="kits" onclick="setProductCategory('kits')">Robot Kits</button>
+            </div>
+        </div>
+        
+        <div id="products-grid" class="products-grid">
+            <!-- Products will be loaded here -->
+        </div>
+        
+        <div class="section-footer">
+            <button class="btn btn-primary">View All Products</button>
+        </div>
+    </div>
+</section>
+
+<!-- 3D Gallery Section -->
+<section id="gallery-3d" class="gallery-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                3D Showcase
+            </div>
+            <h2 class="section-title">
+                3D Robotics <span class="text-primary">Gallery</span>
+            </h2>
+            <p class="section-subtitle">
+                Explore stunning 3D models, interactive designs, and downloadable robotics blueprints from our creative community.
+            </p>
+        </div>
+        
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-category="all" onclick="setGalleryCategory('all')">All Designs</button>
+            <button class="filter-btn" data-category="humanoid" onclick="setGalleryCategory('humanoid')">Humanoid Robots</button>
+            <button class="filter-btn" data-category="industrial" onclick="setGalleryCategory('industrial')">Industrial Bots</button>
+            <button class="filter-btn" data-category="drones" onclick="setGalleryCategory('drones')">Drones & UAVs</button>
+            <button class="filter-btn" data-category="components" onclick="setGalleryCategory('components')">Components</button>
+        </div>
+        
+        <div id="gallery-grid" class="gallery-grid">
+            <!-- Gallery items will be loaded here -->
+        </div>
+        
+        <div class="section-footer">
+            <button class="btn btn-primary">Explore Full Gallery</button>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Features</div>
+            <h2 class="section-title">
+                Advanced Intelligence, <br>Human-Like Intuition
+            </h2>
+            <p class="section-subtitle">
+                Built with cutting-edge technology to understand, learn, and adapt to your unique needs.
+            </p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a10 10 0 1 0 10 10 4 4 0 1 1-4-4"></path>
+                        <path d="M12 8a4 4 0 1 0 4 4"></path>
+                        <circle cx="12" cy="12" r="1"></circle>
+                    </svg>
+                </div>
+                <h3>Adaptive Learning</h3>
+                <p>Atlas learns from your interactions, continuously improving its responses and actions to better serve your needs.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <path d="M9 13v-1h6v1"></path>
+                        <path d="M11 18.5l-.5-1 1-.5.5 1.5-1 .5-.5-1 1-.5"></path>
+                        <path d="M9.5 12 9 11H4"></path>
+                    </svg>
+                </div>
+                <h3>Natural Interaction</h3>
+                <p>Communicate using natural language and gestures. Atlas understands context and responds appropriately.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="18" height="11" x="3" y="11" rx="2"></rect>
+                        <circle cx="12" cy="5" r="2"></circle>
+                        <path d="M12 7v4"></path>
+                        <line x1="8" x2="8" y1="16" y2="16"></line>
+                        <line x1="16" x2="16" y1="16" y2="16"></line>
+                    </svg>
+                </div>
+                <h3>Precise Movement</h3>
+                <p>Advanced motorized joints provide fluid, human-like movement with exceptional balance and coordination.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                        <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+                        <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" x2="12" y1="22.08" y2="12"></line>
+                    </svg>
+                </div>
+                <h3>Spatial Awareness</h3>
+                <p>Advanced sensors and mapping technology allow Atlas to navigate complex environments with ease.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                        <path d="m14.5 9-5 5"></path>
+                        <path d="m9.5 9 5 5"></path>
+                    </svg>
+                </div>
+                <h3>Enhanced Security</h3>
+                <p>Built-in protocols protect your data and privacy, while physical safeguards ensure safe operation.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 6H3v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-2"></path>
+                        <path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"></path>
+                        <line x1="12" x2="12" y1="11" y2="15"></line>
+                        <line x1="10" x2="14" y1="13" y2="13"></line>
+                    </svg>
+                </div>
+                <h3>Task Assistance</h3>
+                <p>From simple reminders to complex multi-step tasks, Atlas can assist with a wide range of activities.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section id="newsletter" class="newsletter-section">
+    <div class="container">
+        <div class="newsletter-content">
+            <div class="section-badge">Newsletter</div>
+            <h2 class="section-title">Subscribe to the newsletter</h2>
+            <p class="section-subtitle">
+                Be first to hear about breakthroughs, partnerships, and deployment opportunities
+            </p>
+            
+            <form id="newsletter-form" class="newsletter-form">
+                <div class="form-group">
+                    <input type="email" id="newsletter-email" placeholder="Email address" required>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-text">Submit</span>
+                        <span class="btn-loading" style="display: none;">Submitting...</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Demo Request Section -->
+<section id="demo-request" class="demo-section">
+    <div class="container">
+        <div class="demo-grid">
+            <div class="demo-card">
+                <div class="demo-header" style="background-image: url('{{ url_for('static', filename='images/background-section3.png') }}')">
+                    <h2>The details</h2>
+                </div>
+                <div class="demo-content">
+                    <h3>Precision engineering meets adaptive intelligence</h3>
+                    <div class="specs-list">
+                        <div class="spec-item">
+                            <div class="spec-icon">✓</div>
+                            <div class="spec-content">
+                                <strong>Height:</strong> 5'8"
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">✓</div>
+                            <div class="spec-content">
+                                <strong>Capacity:</strong> 55lbs
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">✓</div>
+                            <div class="spec-content">
+                                <strong>Weight:</strong> 140lbs
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">✓</div>
+                            <div class="spec-content">
+                                <strong>Uptime:</strong> 6hr
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">✓</div>
+                            <div class="spec-content">
+                                <strong>Movement:</strong> 1.5M/S
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-card">
+                <div class="demo-header" style="background-image: url('{{ url_for('static', filename='images/background-section1.png') }}')">
+                    <div class="demo-badge">Request a demo</div>
+                    <h2>See it for yourself</h2>
+                </div>
+                <div class="demo-content">
+                    <form id="demo-form" class="demo-form">
+                        <div class="form-group">
+                            <input type="text" name="fullName" placeholder="Full name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="company" placeholder="Company (optional)">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span class="btn-text">Request access</span>
+                            <span class="btn-loading" style="display: none;">Submitting...</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">TheRobotCompany</h3>
+                <p class="footer-description">
+                    Your comprehensive robotics platform for learning, building, and innovating. 
+                    Connecting robotics enthusiasts worldwide with AI-powered tools and premium components.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 1 1-4-4"></path>
+                            <path d="M12 8a4 4 0 1 0 4 4"></path>
+                            <circle cx="12" cy="12" r="1"></circle>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4l11.733 16h4.267l-11.733-16z"></path>
+                            <path d="M6.124 6.124l8.752 8.752"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Platform</h4>
+                <ul class="footer-links">
+                    <li><a href="#ai-chat">AI Assistant</a></li>
+                    <li><a href="#marketplace">Marketplace</a></li>
+                    <li><a href="#gallery-3d">3D Gallery</a></li>
+                    <li><a href="#features">Features</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Community</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Forums</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Discord</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Contact</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4l11.733 16h4.267l-11.733-16z"></path>
+                            <path d="M6.124 6.124l8.752 8.752"></path>
+                        </svg>
+                        support@therobotcompany.com
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        +1 (555) 123-4567
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        San Francisco, CA
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 TheRobotCompany. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+    <div class="toast-content">
+        <span id="toast-message"></span>
     </div>
 </div>
 {% endblock %}
 
-{% block footer %}
-<footer class="flex justify-center">
-    <div class="flex max-w-[960px] flex-1 flex-col">
-        <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
-            <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
-                <a class="text-[#49739c] text-base font-normal leading-normal min-w-40" href="#">About Us</a>
-                <a class="text-[#49739c] text-base font-normal leading-normal min-w-40" href="#">Contact</a>
-                <a class="text-[#49739c] text-base font-normal leading-normal min-w-40" href="#">Privacy Policy</a>
-                <a class="text-[#49739c] text-base font-normal leading-normal min-w-40" href="#">Terms of Service</a>
-            </div>
-            <p class="text-[#49739c] text-base font-normal leading-normal">© 2024 TheRobotCompany.com. All rights reserved.</p>
-        </footer>
-    </div>
-</footer>
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/marketplace.js') }}"></script>
+<script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+<script src="{{ url_for('static', filename='js/forms.js') }}"></script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 {% endblock %}
