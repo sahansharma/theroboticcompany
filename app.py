@@ -4,11 +4,14 @@ import csv
 from pathlib import Path
 from dotenv import load_dotenv
 from flask_cors import CORS
+from ai_routes import ai_bp
 
 load_dotenv()
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 CORS(app)
+app.register_blueprint(ai_bp, url_prefix='/ai')
+
 
 BASE_DIR = Path(__file__).parent
 DATA_DIR = BASE_DIR / 'data'

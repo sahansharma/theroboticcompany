@@ -2,9 +2,13 @@ import os
 from flask import Blueprint, request, jsonify
 from openai import OpenAI
 from rag.retriever import search as rag_search
+from flask_cors import CORS
+from dotenv import load_dotenv
 
 ai_bp = Blueprint('ai', __name__)
+CORS(ai_bp)
 
+load_dotenv()
 client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 
 BASE_SYSTEM_PROMPT = (
