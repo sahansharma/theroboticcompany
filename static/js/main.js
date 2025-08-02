@@ -82,13 +82,12 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Loading products...")
   }
 
-  const loadGallery = () => {
-    // Placeholder for loadGallery function
-    console.log("Loading gallery...")
-  }
+  // Remove the old loadGallery call since gallery.js handles its own initialization
+  // if (window.loadGallery) {
+  //   window.loadGallery()
+  // }
 
   loadProducts()
-  loadGallery()
 })
 
 // Animation observer

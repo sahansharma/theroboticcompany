@@ -24,11 +24,15 @@ def ask_ai():
         print("[DEBUG] No prompt provided.")
         return jsonify({'error': 'Prompt is required.'}), 400
 
-    # RAG: Retrieve relevant knowledge
-    context_snippets = rag_search(user_prompt, k=3)
-    print(f"[DEBUG] Retrieved RAG context: {context_snippets}")
-    context = "\n---\n".join(context_snippets)
-    system_prompt = BASE_SYSTEM_PROMPT + f"\n\nRelevant context:\n{context}\n"
+    try:
+        context_snippets = rag_search(user_prompt, k=3)
+        print(f"[DEBUG] Retrieved RAG context: {context_snippets}")
+        context = "\n---\n".join(context_snippets)
+        system_prompt = BASE_SYSTEM_PROMPT + f"\n\nRelevant context:\n{context}\n"
+    except Exception as e:
+        print(f"[DEBUG] RAG retrieval failed: {e}")
+        system_prompt = BASE_SYSTEM_PROMPT + "\n\n(Note: RAG context unavailable due to an internal error.)\n"
+
     print(f"[DEBUG] Constructed system prompt: {system_prompt}")
 
     try:

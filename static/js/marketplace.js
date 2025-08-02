@@ -69,12 +69,7 @@ function renderProducts(products, reset = false) {
       <div class="product-card">
         <div class="product-image">
           ${product.featured ? '<div class="product-badge">Featured</div>' : ""}
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M16 6H3v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-2"></path>
-            <path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"></path>
-            <line x1="12" x2="12" y1="11" y2="15"></line>
-            <line x1="10" x2="14" y1="13" y2="13"></line>
-          </svg>
+          <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 180px; object-fit: contain; background: #e0e7ef; border-radius: 1rem;" />
         </div>
         <div class="product-info">
           <h3 class="product-title">${product.name}</h3>
