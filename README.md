@@ -2,6 +2,10 @@
 
 A comprehensive web platform for robotics enthusiasts, engineers, and companies featuring AI-powered chat assistance, 3D model gallery, marketplace, and educational resources.
 
+## Demo Video
+https://github.com/user-attachments/assets/75f4f59d-ba52-424b-ad15-408d7eb500c9
+
+
 ##  Features
 
 ###  AI-Powered Robotics Assistant
