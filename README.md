@@ -1,4 +1,4 @@
-# RoboticCompany.com - Robotics AI Platform
+# Robotics AI Platform - In support with the OpenQQuantify
 
 A comprehensive web platform for robotics enthusiasts, engineers, and companies featuring AI-powered chat assistance, 3D model gallery, marketplace, and educational resources.
 
